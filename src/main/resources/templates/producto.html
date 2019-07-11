@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Listado de product</title>
+</head>
+<body>
+
+<div class="container">
+    <h3>Listado de product</h3>
+    <div class="col-md-12" >
+        <a th:href="@{/productos/add}" class="btn btn-primary">Agregar product</a>
+    </div>
+
+    <div th:switch="productos">
+        <div th:case="*">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">IdProducto</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Categoria</th>
+
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="producto : ${productos}">
+                    <th scope="row" th:text="${producto.idProducto}"></th>
+                    <td th:text="${producto.descripcion}"></td>
+                    <td th:text="${producto.precio}"></td>
+                    <td th:text="${producto.stock}"></td>
+                    <td th:text="${producto.categoria}"></td>
+
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <a th:href="@{/productos/edit/{idProducto} (idProducto=${producto.idProducto}) }"
+                                    class="btn btn-primary btn-sm">Editar</a>
+                            <a th:href="@{/productos/delete/{idProducto} (idProducto=${producto.idProducto}) }"
+                                    class="btn btn-danger btn-sm">Eliminar</a>
+                        </div>
+                    </td>
+
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

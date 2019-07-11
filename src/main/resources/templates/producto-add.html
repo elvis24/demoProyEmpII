@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Agregar Producto</title>
+</head>
+<body>
+
+<div class="container">
+    <h3>Agregar Products</h3>
+    <div>
+
+        <form action="#" method="post"
+            th:object="${producto}"
+            th:action="@{/productos/save}">
+
+            <div class="form-group">
+                <label for="idProducto">IdProducto</label>
+                <input type="text" id="idProducto"
+                       class="form-controller"
+                       placeholder="ingrese IdProducto"
+                       th:field="*{idProducto}">
+            </div>
+
+            <div class="form-group">
+                <label for="descripcion">Descripcion</label>
+                <input type="text" id="descripcion"
+                       class="form-controller"
+                       placeholder="ingrese descripcion"
+                       th:field="*{descripcion}">
+            </div>
+
+            <div class="form-group">
+                <label for="precio">Precio</label>
+                <input type="text" id="precio"
+                       class="form-controller"
+                       placeholder="ingrese el precio"
+                       th:field="*{precio}">
+            </div>
+            <div class="form-group">
+                <label for="stock">Stock</label>
+                <input type="text" id="stock"
+                       class="form-controller"
+                       placeholder="ingrese el price"
+                       th:field="*{stock}">
+            </div>
+            <div class="form-group">
+                <label for="categoria">Categoria</label>
+                <input type="text" id="categoria"
+                       class="form-controller"
+                       placeholder="ingrese la categoria"
+                       th:field="*{categoria}">
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Agregar Producto
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+
+</body>
+</html>
